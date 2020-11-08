@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>EDUCATE360</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet"/>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('select').formSelect();
+		});
+		$(document).ready(function(){
+			$('.tabs').tabs();
+		});
+	</script>
+
+</head>
+<body>
+  <nav id="navstay" class="indigo darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="index.html" class="brand-logo"><h5 class="white-text text-lighten">EDUCATE360</h5></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="tutors.html"><span class="white-text text-lighten">Tutors</span></a></li>
+        <li><a href="aboutus.html"><span class="white-text text-lighten">About Us</span></a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
+        <li><a href="tutors.html">Tutors</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+	  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  
+  <div class="indigo darken-4">
+  <div  class="section no-pad-bot">
+  <div class="container">
+		<div class="row">
+			<h5 class="white-text center-align"></br></br>Tutor Form</h5>
+			<p class="white-text center-align">Check out the list of helpers and the subjects
+			they are tutoring in. Click on their picture to learn more about them. Fill in the 
+			request form and look forward to hearing back from us within 24 hours!</p>
+		</div>
+		
+		<form method="post" action="tutorform-handler.php">
+		
+        <div class="row">
+			<div class="input-field col s4">
+				<input name="first_name" id="first_name" type="text" class="validate white-text">
+				<label for="first_name">First Name</label>
+			</div>
+			<div class="input-field col s4">
+				<input name="last_name" id="last_name" type="text" class="validate white-text">
+				<label for="last_name">Last Name</label>
+			</div>
+			<div class="input-field col s4">
+				<input name="email" id="email" type="text" class="validate white-text">
+				<label for="email">Email</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<!--<div class="input-field col s4">
+				<select multiple>
+					<option value="" disabled selected>Choose your option</option>
+					<option name="subject_field[]" value="math">Math</option>
+					<option name="subject_field[]" value="cs">Computer Science</option>
+					<option name="subject_field[]" value="la">Language Arts</option>
+					<option name="subject_field[]" value="ss">Social Studies</option>
+					<option name="subject_field[]" value="science">Science</option>
+					<option name="subject_field[]" value="business">Business</option>
+					<option name="subject_field[]" value="essay">Essay Editing</option>
+				</select>
+				<label>Subject</label>
+			</div>-->
+			
+			<div class="input-field col s4">
+				<input name="subject_field" id="subject_field" type="text" class="validate white-text">
+				<label for="subject_field">Subject</label>
+			</div>
+			
+			<div class="input-field col s4">
+				<input name="tutor_field" id="tutor_field" type="text" class="validate white-text">
+				<label for="tutor_field">Preferred Tutor</label>
+			</div>
+			
+			<!--<div class="input-field col s4">
+				<select multiple>
+					<option value="" disabled selected>Choose your option</option>
+					<option value="zoom">Zoom</option>
+					<option value="gh">Google Hangouts</option>
+					<option value="phone">Phone Call</option>
+					<option value="ft">Facetime</option>
+					<option value="other">Other</option>
+				</select>
+				<label>Method of Communication</label>
+			</div>-->
+			<div class="input-field col s4">
+				<input name="comm_field" id="comm_field" type="text" class="validate white-text">
+				<label for="comm_field">Preferred Communication Method</label>
+			</div>
+		
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s6">
+				<input name="time_field" id="time_field" type="text" class="validate white-text">
+				<label for="time_field">Available Times</label>
+			</div>
+			
+			<div class="input-field col s6">
+				<input name="comment_field" id="comment_field" type="text" class="validate white-text">
+				<label for="comment_field">Additional Comments</label>
+			</div>
+		</div>
+		
+		<div class="row">
+		<div class="col s2 offset-s10">
+			<input onclick="M.toast({html: 'Request Sent!'})" id="tutorsubmit" class="btn-small waves-effect waves-light lightwhite lighten-1" name="submit" type="submit" value="Submit">
+		</div>
+		</div>
+		
+		</form>
+		</br>
+      </div>
+	  </div>
+	  </div>
+  
+  
+  <div class="row">
+    <div class="col s12">
+		<ul id="tutortabs" class="tabs z-depth-1 tabs-fixed-width indigo-text text-darken-4">
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#math">Math</a></li>
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#compsci">Computer Science</a></li>
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#lang">Language Arts</a></li>
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#social">Social Studies</a></li>
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#science">Science</a></li>
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#business">Business</a></li>
+			<li class="tab col s3"><a class="indigo-text text-darken-4" href="#essay">Essay Editing</a></li>
+		</ul>
+	</div>
+  
+  <!--<div id="math" class = "col s12">
+  <!--MATH-->
+  <div id="math" class="container col s12">
+    <div class="section">
+		<!--<div class="row center">
+			<h4 class="header col s12 light"><b>Math</b></h4>
+        </div>-->
+        
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Lucille L.</span>
+						<p><ul>
+							<li>Algebra</li>
+							<li>Geometry</li>
+							<li></br></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Deepthi P.</span>
+						<p><ul>
+							<li>Algebra</li>
+							<li>Geometry</li>
+							<li>Calculus</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Ankita S.</span>
+						<p><ul>
+							<li>Algebra</li>
+							<li>Calculus</li>
+							<li></br></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Aneesh J.</span>
+						<p><ul>
+							<li>Calculus</li>
+							<li>Geometry</li>
+							<li></br></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Louis L.</span>
+						<p><ul>
+							<li>Algebra</li>
+							<li>Geometry</li>
+							<li>Calculus</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Riya J.</span>
+						<p><ul>
+							<li>Algebra</li>
+							<li>Geometry</li>
+							<li></br></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+  <!--</div>
+  
+  <!--Computer Science-->
+  <div id="compsci" class="container col s12">
+    <div class="section">  
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Deepthi P.</span>
+						<p><ul>
+							<li>Python</li>
+							<li>Java</li>
+							<li></br></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Ankita S.</span>
+						<p><ul>
+							<li>C#/C++</li>
+							<li>HTML/CSS</li>
+							<li>JavaScript</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Aneesh J.</span>
+						<p><ul>
+							<li>Python</li>
+							<li>Java</li>
+							<li>C++</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+  </div>
+  <!--</div>
+  
+  <!--Language Arts-->
+  <div id="lang" class="container col s12">
+    <div class="section">   
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Lucille L.</span>
+						<p><ul>
+							<li>Middle Grades English</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Aneesh J.</span>
+						<p><ul>
+							<li>Middle Grades English</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+  </div>
+  <!--</div>-->
+  
+  <div id="social" class="container col s12">
+  <!--Social Studies-->
+    <div class="section">    
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Lucille L.</span>
+						<p><ul>
+							<li>Middle Grades History</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Riya J.</span>
+						<p><ul>
+							<li>Middle Grades History</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+  </div>
+  
+  <div id="science" class = "container col s12">
+  <!--Science-->
+    <div class="section">
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Aneesh J.</span>
+						<p><ul>
+							<li>Physics</li>
+							<li>Material Science</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Nina G.</span>
+						<p><ul>
+							<li>Biology</li>
+							<li>Psychology</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Shreya N.</span>
+						<p><ul>
+							<li>Biology</li>
+							<li>Chemistry</li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+  </div>
+  
+  <div id="business" class = "container col s12">
+  <!--Business-->
+    <div class="section">   
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Nina G.</span>
+						<p><ul>
+							<li></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Riya J.</span>
+						<p><ul>
+							<li></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Louis L.</span>
+						<p><ul>
+							<li></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+  </div>
+  
+  <div id="essay" class = "container col s12">
+  <!--Essay Editing-->
+    <div class="section">     
+		<div class="row">
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Lucille L.</span>
+						<p><ul>
+							<li></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Aneesh J.</span>
+						<p><ul>
+							<li></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col s12 m3">
+				<div class="card indigo darken-4">
+					<div class="card-content white-text">
+						<span class="card-title">Louis L</span>
+						<p><ul>
+							<li></li>
+						</ul></p>
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+	</div>
+  </div>
+  </div>
+  
+  <!--Meet the Tutors-->
+  <div class="container">
+	<div class="section">
+		<div class="row">
+			<div class="col s12 center">
+				<h4><i class="mdi-content-send brown-text"></i>Meet The Tutors</h4>
+			</div>
+		</div>
+		<div class="row">
+			<!--Lucille-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Lucille.jpg" alt="lucille">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Lucille L.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Lucille L.</b><i class="material-icons right">close</i></span>
+						<p>Currently Lucille is finishing her Bachelor of Science in Middle Grades Education. She loves drawing and eating sushi.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Deepthi-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Deepthi.jpg" alt="deepthi">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Deepthi P.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Deepthi P.</b><i class="material-icons right">close</i></span>
+						<p>In the future, Deepthi will be working full-time at Dropbox. She loves hot pot, kbbq, and coding.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--AJ-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Aneesh.jpg" alt="aneesh">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Aneesh J.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Aneesh J.</b><i class="material-icons right">close</i></span>
+						<p> Currently Aneesh is working towards a Ph.D in Computational Physics. He enjoys watching anime and his favorite food is pizza.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Ankita-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Ankita.jpg" alt="ankita">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Ankita S.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Ankita S.</b><i class="material-icons right">close</i></span>
+						<p>Currently Ankita is finishing her Bachelor of Science in Game Design and Development. She loves animals (puppies in particular!).</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="row">
+			<!--Louis-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Louis.jpg" alt="louis">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Louis L.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Louis L.</b><i class="material-icons right">close</i></span>
+						<p>Currently, Louis is working full-time at BDO. He loves working with numbers and his favorite ice cream flavor is ice cream.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Shreya-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Shreya.jpg" alt="shreya">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Shreya N.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Shreya N.</b><i class="material-icons right">close</i></span>
+						<p>In the future, Shreya hopes to be a labor and delivery nurse. She loves baking healthy desserts in her free time.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Nina-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Nina.jpg" alt="nina">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Nina G.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Nina G.</b><i class="material-icons right">close</i></span>
+						<p>Currently Nina is finishing her Bachelor of Arts in Public Health Policy and Psychology. She enjoys dancing and cooking.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--Riya-->
+			<div class="col s12 m3">
+				<div class="icon-block">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/Riya.jpg" alt="riya">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4"><b>Riya J.</b><i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4"><b>Riya J.</b><i class="material-icons right">close</i></span>
+						<p>In the future, Riya hopes to work at a business company in the Bay Area. She enjoys learning about history and loves fruits.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+  </div>
+  
+  <footer class="page-footer indigo darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text" id="contact">Contact Me</h5>
+          <p class="grey-text text-lighten-4">Thank you for visiting my page! Feel free to send any questions or comments my way and I will respond as soon as possible.</p>
+        </div>
+        <div class="col l6 s12">
+          
+ 	      <form method="post" action="form-handler.php">
+        
+            <label>Name</label>
+            <input class="white-text" name="name" placeholder="Type Here">
+            
+			<label>Email</label>
+            <input class="white-text" name="email" type="email" placeholder="person@sample.com">
+            
+            <label>Message</label>
+            <textarea class="white-text" name="message" placeholder="Type Here"></textarea>
+			
+			<br>
+			
+			<input onclick="M.toast({html: 'Message Sent!'})" id="submit" class="btn-small waves-effect waves-light lightwhite lighten-1" name="submit" type="submit" value="Submit">
+        
+        </form>
+		</div>
+		</div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      &copy; Lucille Luan
+      </div>
+    </div>
+  </footer>
+  <!--<script type="text/javascript">
+	if ($('#tabs_swipe').length) {
+      $('#tabs_swipe').tabs({ 'swipeable': true });
+    }
+</script>
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/three.js"></script>
+    
+  </body>
+</html>

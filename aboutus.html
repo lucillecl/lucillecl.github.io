@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>EDUCATE360</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet"/>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+  <nav id="navstay" class="indigo darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="index.html" class="brand-logo"><h5 class="white-text text-lighten">EDUCATE360</h5></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="tutors.html"><span class="white-text text-lighten">Tutors</span></a></li>
+        <li><a href="aboutus.html"><span class="white-text text-lighten">About Us</span></a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
+        <li><a href="tutors.html">Tutors</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+	  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div  id="about" class="section no-pad-bot  firstparallax">
+      <div class="container">
+        <br><br>
+        <div class="row center">
+			<div class="col s5 push-s7"><img class="activator responsive-img left-align" src="images/Lucille2.png" alt="violin"></div>
+          <div class="col s7 pull-s5">
+			<h3 class="header center black-text">About the Founder</h3>
+			<h5 class="header col s12 light black-text"><b>Lucille Luan is a current senior studying Middle Grades Education and double-minoring in History 
+			and English at the University of Illinois, Urbana-Champaign. She is passionate about creating equitable learning opportunities for students, 
+			regardless of their differences. She enjoys helping others realize their fullest academic potential and find their own purpose in life through 
+			education. Lucille is a proud Californian who is a self-described dog lover and food fanatic.</b></h5>
+		  </div>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="images/desk.jpg" alt="Desk"></div>
+  </div>
+
+    <<div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h4>EDUCATE360 Goals</h4>
+          <p>In EDUCATE360, we aim to provide free private and group tutoring to all students, 
+		  with a focus on marginalized students, students with dis/abilities, and students affected by the COVID pandemic. </p>
+          <p>EDUCATE360 aims to see students from diverse racial, ethnic, economic, and regional 
+		  background exceeding in education. We work to achieve this goal by tutoring students online for free.</p>
+          <p>EDUCATE360 aims to cultivate a culture of learning, academic excellence, and positive 
+		  social-emotional growth to increase educational outcomes, knowledge, and life skills for all.</p>
+        </div>
+      </div>
+	  
+	  <div class="row">
+        <div class="col s12 center">
+          <h4>Background Of EDUCATE360</h4>
+          <p>EDUCATE360 was founded in 2020 amidst the COVID-19 pandemic after Lucille noticed a 
+		  number of external factors, such as social inequality, economic disparity, and/or political situations, which 
+		  unfairly hindered children from reaching their full potentials. After hours of brainstorming and preparation, 
+		  she started this non-profit tutoring website that is free for any student to use!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer indigo darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text" id="contact">Contact Me</h5>
+          <p class="grey-text text-lighten-4">Thank you for visiting my page! Feel free to send any questions or comments my way and I will respond as soon as possible.</p>
+        </div>
+        <div class="col l6 s12">
+          
+ 	      <form method="post" action="form-handler.php">
+        
+            <label>Name</label>
+            <input class="white-text" name="name" placeholder="Type Here">
+            
+			<label>Email</label>
+            <input class="white-text" name="email" type="email" placeholder="person@sample.com">
+            
+            <label>Message</label>
+            <textarea class="white-text" name="message" placeholder="Type Here"></textarea>
+			
+			<br>
+			
+			<input onclick="M.toast({html: 'Message Sent!'})" id="submit" class="btn-small waves-effect waves-light lightwhite lighten-1" name="submit" type="submit" value="Submit">
+        
+        </form>
+		</div>
+		</div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      &copy; Lucille Luan
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/three.js"></script>
+    
+  </body>
+</html>
